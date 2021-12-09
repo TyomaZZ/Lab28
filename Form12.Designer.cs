@@ -1,7 +1,7 @@
 ﻿
 namespace Lab28
 {
-    partial class Form1
+    partial class Form12
     {
         /// <summary>
         /// Обязательная переменная конструктора.
@@ -172,7 +172,7 @@ namespace Lab28
             this.labelPodskazka.Text = "Текст";
             this.labelPodskazka.Visible = false;
             // 
-            // Form1
+            // Form12
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -186,7 +186,7 @@ namespace Lab28
             this.Controls.Add(this.Slovar);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Form1";
+            this.Name = "Form12";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Перекладач";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);

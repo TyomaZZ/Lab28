@@ -11,9 +11,9 @@ using System.Windows.Forms;
 
 namespace Lab28
 {
-    public partial class Form1 : Form
+    public partial class Form12 : Form
     {
-        public Form1()
+        public Form12()
         {
             InitializeComponent();
         }
@@ -76,7 +76,11 @@ namespace Lab28
                 return;
             }
             else
+            {
                 labelPodsk.Visible = false;
+                textBoxFinal.Text = "Немає в словнику!";
+            }
+                
             foreach (DataGridViewRow row in Slovar.Rows)
             { 
                 if (row.Cells[0].Value != null & row.Cells[1].Value != null) { 
