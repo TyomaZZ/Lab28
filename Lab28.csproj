@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DialogAction.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DialogAction.Designer.cs">
+      <DependentUpon>DialogAction.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form12.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -54,6 +60,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="DialogAction.resx">
+      <DependentUpon>DialogAction.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form12.resx">
       <DependentUpon>Form12.cs</DependentUpon>
     </EmbeddedResource>

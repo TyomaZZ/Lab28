@@ -32,7 +32,7 @@ namespace Lab28
             List<string> list = new List<string>();
             foreach (string str in File.ReadAllLines("dictionary.txt"))
                 list.Add(str);
-            Slovar.RowCount = list.Count + 1;
+            Slovar.RowCount = list.Count;
             foreach (DataGridViewRow row in Slovar.Rows)
             {
                 if (list.Count != 0)
@@ -116,6 +116,54 @@ namespace Lab28
         private void PodClick(object sender, EventArgs e)
         {
             textBoxStart.Text = ((Label)sender).Text;
+        }
+
+        
+
+        private void buttonEdit_Click(object sender, EventArgs e)
+        {
+            if (Slovar.SelectedRows == null)
+            {
+                MessageBox.Show("Не обрано рядку для редагування", "Будь ласка виберіть рядок");
+                return;
+            }
+            else
+            {
+                KeyOfDict key;
+                key.eng = Slovar.CurrentRow.Cells[1].Value.ToString();
+                key.ukr = Slovar.CurrentRow.Cells[0].Value.ToString();
+                DialogAction dialog = new DialogAction(((Button)sender).Text, key);
+                if (dialog.ShowDialog() != DialogResult.OK)
+                {
+                    return;
+                }
+                Slovar.CurrentRow.Cells[0].Value = dialog.keys.ukr;
+                Slovar.CurrentRow.Cells[1].Value = dialog.keys.eng;
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            KeyOfDict key = new KeyOfDict();
+            DialogAction dialog = new DialogAction(((Button)sender).Text, key);
+            if (dialog.ShowDialog() != DialogResult.OK)
+            {
+                return;
+            }
+            Slovar.RowCount++;
+            Slovar[0, Slovar.RowCount - 1].Value = dialog.keys.ukr;
+            Slovar[1, Slovar.RowCount - 1].Value = dialog.keys.eng;
+            Slovar.CurrentCell = Slovar[0, Slovar.RowCount - 1];
+        }
+
+        private void buttonDel_Click(object sender, EventArgs e)
+        {
+            if (Slovar.CurrentCell == null)
+            {
+                MessageBox.Show("Не обрано рядку для видалення", "Будь ласка виберіть рядок");
+                return;
+            }
+            Slovar.Rows.Remove(Slovar.CurrentRow);
         }
     }
 }
